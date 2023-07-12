@@ -10,7 +10,7 @@ fun getRefreshToken() {
     var tokens = sessionClient.tokens
 
     if (tokens.refreshToken == null) {
-        PendingOperation.error(Errors.NO_ACCESS_TOKEN)
+        PendingOperation.error(Errors.NO_REFRESH_TOKEN)
     } else {
         PendingOperation.success(tokens.refreshToken)
     }
