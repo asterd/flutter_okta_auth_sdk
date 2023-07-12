@@ -61,6 +61,13 @@ class FlutterOktaAuthSdk {
     return await _channel.invokeMethod('getIdToken');
   }
 
+  Future<String?> getRefreshToken() async {
+    if (isInitialized == false) {
+      throw Exception("Cannot get refresh token before initializing Okta SDK");
+    }
+    return await _channel.invokeMethod('getRefreshToken');
+  }
+
   Future<bool> revokeAccessToken() async {
     if (isInitialized == false) {
       throw Exception(
