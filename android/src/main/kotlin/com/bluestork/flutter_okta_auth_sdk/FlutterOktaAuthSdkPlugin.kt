@@ -103,6 +103,9 @@ class FlutterOktaAuthSdkPlugin : FlutterPlugin, MethodCallHandler,
         AvailableMethods.GET_ID_TOKEN.methodName -> {
           getIdToken()
         }
+        AvailableMethods.GET_REFRESH_TOKEN.methodName -> {
+          getRefreshToken()
+        }
         AvailableMethods.REVOKE_ACCESS_TOKEN.methodName -> {
           revokeAccessToken()
         }
