@@ -123,6 +123,12 @@ public class SwiftFlutterOktaAuthSdkPlugin: NSObject, FlutterPlugin {
         })
         break;
 
+      case "getRefreshToken":
+        getRefreshToken(callback: { token in
+          result(token);
+        })
+        break;
+
       case "revokeAccessToken":
         revokeAccessToken(callback: { isRevoked in
           result (isRevoked)
@@ -304,6 +310,13 @@ public class SwiftFlutterOktaAuthSdkPlugin: NSObject, FlutterPlugin {
   func getIdToken(callback: ((String?) -> (Void))? ) {
     if let idToken = stateManager?.idToken {
       callback?(idToken)
+    }
+    else { callback?(nil) }
+  }
+
+  func getRefreshToken(callback: ((String?) -> (Void))? ) {
+    if let refreshToken = stateManager?.refreshToken {
+      callback?(refreshToken)
     }
     else { callback?(nil) }
   }
